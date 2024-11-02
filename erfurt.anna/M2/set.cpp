@@ -22,3 +22,8 @@ erfurt::FrameRectangle& erfurt::getFrameRectangle(const Set& set)
   FrameRectangle res{sw, ne};
   return res;
 }
+
+bool erfurt::operator==(const Set& rsh, const Set& lsh)
+{
+  return rsh.name_ == lsh.name_;
+}

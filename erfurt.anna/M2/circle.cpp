@@ -49,3 +49,8 @@ std::istream& erfurt::operator>>(std::istream& in, Circle& circle)
   }
   return in;
 }
+
+bool erfurt::operator==(const Circle& rsh, const Circle& lsh)
+{
+  return rsh.name_ == lsh.name_;
+}

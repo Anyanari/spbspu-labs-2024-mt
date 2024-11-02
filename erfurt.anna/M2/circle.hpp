@@ -30,5 +30,6 @@ namespace erfurt
   FrameRectangle& getFrameRectangle(const Circle& circle);
   std::ostream& operator<<(std::ostream& out, const Circle& circle);
   std::istream& operator>>(std::istream& in, Circle& circle);
+  bool operator==(const Circle& rsh, const Circle& lsh);
 }
 #endif
