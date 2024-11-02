@@ -31,3 +31,21 @@ std::ostream& erfurt::operator<<(std::ostream& out, const Circle& circle)
   out << circle.radius_ << ' ' << circle.coordinates_ << '\n';
   return out;
 }
+
+std::istream& erfurt::operator>>(std::istream& in, Circle& circle)
+{
+  std::istream::sentry guard(in);
+  if (!guard)
+  {
+    return in;
+  }
+  std::string name;
+  size_t radius = 0;
+  size_t x = 0, y = 0;
+  in >> name >> radius >> x >> y;
+  if (in)
+  {
+    circle = Circle{name, radius, Point{x, y}};
+  }
+  return in;
+}
