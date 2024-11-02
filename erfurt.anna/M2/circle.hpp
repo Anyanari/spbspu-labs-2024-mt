@@ -11,6 +11,7 @@ namespace erfurt
     size_t x_;
     size_t y_;
   };
+  bool operator<(const Point& rsh, const Point& lsh);
   std::ostream& operator<<(std::ostream& out, const Point& point);
 
   struct FrameRectangle
@@ -18,6 +19,7 @@ namespace erfurt
     Point sw_;
     Point ne_;
   };
+  std::ostream& operator<<(std::ostream& out, const FrameRectangle& rect);
 
   struct Circle
   {

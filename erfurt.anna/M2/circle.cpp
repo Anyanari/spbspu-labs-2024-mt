@@ -1,10 +1,22 @@
 #include "circle.hpp"
 
+bool erfurt::operator<(const Point& rsh, const Point& lsh)
+{
+  return (rsh. x_ < lsh.x_ && rsh.y_ <= lsh.y_ || rsh. x_ <= lsh.x_ && rsh.y_ < lsh.y_);
+}
+
 std::ostream& erfurt::operator<<(std::ostream& out, const Point& point)
 {
   out << '(' << point.x_ << ' ' << point.y_ << ')';
   return out;
 }
+
+std::ostream& erfurt::operator<<(std::ostream& out, const FrameRectangle& rect)
+{
+  out << rect.sw_ << ' ' << rect.ne_;
+  return out;
+}
+
 
 erfurt::FrameRectangle& erfurt::getFrameRectangle(const Circle& circle)
 {
