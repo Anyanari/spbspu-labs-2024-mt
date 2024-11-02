@@ -46,3 +46,37 @@ void erfurt::createSet(std::vector<Set>& sets, const std::vector<Circle>& circle
   }
   sets.push_back(Set{name, setSize, temp});
 }
+
+void erfurt::showCircle(const std::vector<Circle>& circles, std::istream& in, std::ostream& out)
+{
+  std::string name;
+  in >> name;
+  auto iter = std::find(circles.cbegin(), circles.cend(), Circle{name});
+  if (iter == circles.cend())
+  {
+    throw::std::logic_error("This circle not exist");
+  }
+  else
+  {
+    out << *iter;
+  }
+}
+
+void erfurt::showSet(const std::vector<Set>& sets, std::istream& in, std::ostream& out)
+{
+  std::string name;
+  in >> name;
+  auto iter = std::find(sets.cbegin(), sets.cend(), Set{name});
+  if (iter == sets.cend())
+  {
+    throw::std::logic_error("This set not exist");
+  }
+  else
+  {
+    out << *iter;
+  }
+}
+
+
+
+
