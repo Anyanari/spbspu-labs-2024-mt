@@ -3,13 +3,20 @@
 
 namespace erfurt
 {
-  struct Set
+  class Set
   {
+  public:
+    Set(std::string name);
+    Set(std::string name, size_t size, std::vector<Circle>& circles);
+    FrameRectangle& getFrameRectangle() const;
+    std::string getName() const;
+    bool consistPoint(const Point& point) const;
+  private:
+    friend std::ostream& operator<<(std::ostream& out, const Set& set);
     std::string name_;
     size_t setSize_;
     std::vector<Circle> set_;
   };
   std::ostream& operator<<(std::ostream& out, const Set& set);
-  FrameRectangle& getFrameRectangle(const Set& set);
   bool operator==(const Set& rsh, const Set& lsh);
 }

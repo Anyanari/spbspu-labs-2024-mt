@@ -1,4 +1,4 @@
-#include "function.hpp"
+#include "commands.hpp"
 #include <iterator>
 #include <algorithm>
 
@@ -20,7 +20,7 @@ void erfurt::createSet(std::vector<Set>& sets, const std::vector<Circle>& circle
 {
   std::string name;
   in >> name;
-  if (std::find(sets.cbegin(), sets.cend(), Set{name}) != sets.cend())
+  if (std::find(sets.cbegin(), sets.cend(), Set(name)) != sets.cend())
   {
     throw std::logic_error("This set already exist");
     return;
@@ -33,7 +33,7 @@ void erfurt::createSet(std::vector<Set>& sets, const std::vector<Circle>& circle
   {
     std::string circ;
     in >> circ;
-    auto iter = std::find(circles.cbegin(), circles.cend(), Circle{circ});
+    auto iter = std::find(circles.cbegin(), circles.cend(), Circle(circ));
     if (iter == circles.cend())
     {
       throw std::logic_error("This circle not exist");
@@ -51,7 +51,7 @@ void erfurt::showCircle(const std::vector<Circle>& circles, std::istream& in, st
 {
   std::string name;
   in >> name;
-  auto iter = std::find(circles.cbegin(), circles.cend(), Circle{name});
+  auto iter = std::find(circles.cbegin(), circles.cend(), Circle(name));
   if (iter == circles.cend())
   {
     throw::std::logic_error("This circle not exist");
@@ -66,7 +66,7 @@ void erfurt::showSet(const std::vector<Set>& sets, std::istream& in, std::ostrea
 {
   std::string name;
   in >> name;
-  auto iter = std::find(sets.cbegin(), sets.cend(), Set{name});
+  auto iter = std::find(sets.cbegin(), sets.cend(), Set(name));
   if (iter == sets.cend())
   {
     throw::std::logic_error("This set not exist");
@@ -88,7 +88,7 @@ void erfurt::frameCircle(const std::vector<Circle>& circles, std::istream& in, s
   }
   else
   {
-    out << getFrameRectangle(*iter);
+    out << iter->getFrameRectangle();
   }
 }
 
@@ -103,6 +103,6 @@ void erfurt::frameSet(const std::vector<Set>& sets, std::istream& in, std::ostre
   }
   else
   {
-    out << getFrameRectangle(*iter);
+    out << iter->getFrameRectangle();
   }
 }
