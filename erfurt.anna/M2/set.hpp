@@ -6,6 +6,7 @@ namespace erfurt
   class Set
   {
   public:
+    Set();
     Set(std::string name);
     Set(std::string name, size_t size, std::vector<Circle>& circles);
     FrameRectangle& getFrameRectangle() const;

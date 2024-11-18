@@ -3,6 +3,9 @@
 #include <iterator>
 #include <limits>
 
+erfurt::Set::Set()
+{};
+
 erfurt::Set::Set(std::string name, size_t size, std::vector<Circle>& circles) :
   name_(name),
   setSize_(size),
